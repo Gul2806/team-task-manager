@@ -35,6 +35,7 @@ app.use(passport.session());
 app.get('/health', (req, res) => res.json({ ok: true }));
 app.use('/auth', require('./routes/auth'));
 app.use('/teams', require('./middleware/requireAuth'), require('./routes/teams'));
+app.use('/tasks', require('./middleware/requireAuth'), require('./routes/tasks'));
 
 app.use((err, req, res, next) => {
   console.error(err);
